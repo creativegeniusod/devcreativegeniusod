@@ -7,7 +7,31 @@ In the above scenario we can use Subjects or BehaviorSubject on the cartService 
 
 
 18. If you have an array of values in a stream and you wish to pipe it such that it will emit the arrays values individually, one by one and wait for them all to be completed before processing another array, how would you do this? Please provide a code example.
-
+We will be using promises for this.
+Code Example:-
+function allProgress(proms, call_cb) {
+  let d = 0;
+  call_cb(0);
+  for (const p of proms) {
+    p.then(()=> {
+      d ++;
+      call_cb( (d * 100) / proms.length );
+    });
+  }
+  return Promise.all(proms);
+}
+function emit(parms) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+       console.log(`Waited ${parms}`);
+       resolve();
+     }, parms);
+  });
+}
+allProgress([emit(1000), emit(3000), emit(2000), emit(3500)],
+  (responce) => {
+     console.log(`% Done = ${responce.toFixed(2)}`);
+});
 
 19. If you have a stream that receives individual values and would like to pipe it such that it builds an array out of these values, emitting the updated array each time a new value is added to it, how would you do this? Please provide a code example.
-
+--
