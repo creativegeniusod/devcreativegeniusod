@@ -1,0 +1,28 @@
+# javascript
+
+1. What is your favourite new javascript feature and why?
+The flatMap() method is identical to the ES6 map method, but also flattens at the same time. The flatMap() method first maps each element using a mapping function, then flattens the result into a new array. flatMap() is often quite useful, as merging both into one method is slightly more efficient.
+
+2. Explain an interesting way in which you have used this javascript feature.
+Arrow functions don't have own definition  is was the good experience compare with regular function.
+
+3. Is there any difference between regular function syntax and the shorter arrow function syntax? (Write the answer in your own words)
+Regular Function:-
+1. function(){}							
+2. Have own definition.
+3. Arguments objects are available.
+4. These are constructible(they can be called using the 'new' keyword) & callable.
+Arrow Function:-
+1. ()=>{}
+2. Arrow functions don't have own definition .
+3. Arguments objects are not available.
+4. These are only callable not constructible.
+
+
+4. What is the difference between 'myFunctionCall(++foo)' and
+'myFunctionCall(foo++)'
+increment at before call, increment after call
+
+5. In your own words, explain what a javascript 'class' is and how it differs from a function.
+a. Classes are special functions which can be used as special constructors.
+b. Functions are functions to access and pass data.

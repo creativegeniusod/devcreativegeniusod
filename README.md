@@ -1,2 +1,2 @@
 # devcreativegeniusod
-This is for javascript job
+This repo contains all the answers.
