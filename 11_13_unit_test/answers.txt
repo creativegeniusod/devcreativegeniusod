@@ -1,0 +1,11 @@
+# unit tests:
+
+11. What technologies do you use to unit test your react components?
+Jest, Mocha, J-unit (java), chai 
+
+12. Are there any pitfalls associated with this technology that have caused you
+difficulty in the past?
+Recurring management, if the inside logic changes. 
+
+13. How do you test in your unit tests to see if the correct properties are being passed to child components.
+Create test runs and pass the actions/reducers functionality into the unit.

@@ -1,0 +1,2 @@
+20. Explain which of the Twilio Api's you have used. Also explain how and in what scenarios you have used them.
+I have used programmable SMS API of twilio in module like login/orders/delivery in webapp as well as react native mobile applications.

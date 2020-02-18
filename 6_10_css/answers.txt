@@ -1,0 +1,18 @@
+# css
+
+6. In your own words, explain css specificity.
+Specificity can be defined as a score/rank that determines which style declarations are ultimately applied to an element.
+The universal selector (*) has low specificity, while ID selectors are highly specific! 
+
+7. In your own words, explain, what is ‘!important’ in css. Also how does it work? Are there any special circumstances when using it, where it’s behavior might not be what you expect?
+This keyword over-rides the existing property of particular selector. All we need to write/add '!important' tag to the value we wish to override. 
+
+8. What is your prefered layout system: inline-block, floating + clearing, flex, grid, other? And why?
+Flex: helps to position, and can be combined to achieve every other property
+mentioned. Is used to expand items to fill available space.
+
+9. Are negative margins legal and what do they do (margin: -20px)?
+Negative margins are valid. They just prepend the margin to its source.
+
+10. If a <div/> has no margin or other styling and a <p/> tag inside of it has a margin top of some kind, the margin from the <p/> tag will show up on the div instead (the margin will show above the div not inside of it), why is this? What are the different things that can be done to prevent it?
+This is happening because margin has been given to <p> tag (margin works out of box ).So, in order to prevent such situations, we should use padding as they work inside the box.

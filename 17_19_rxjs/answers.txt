@@ -1,0 +1,13 @@
+17. What are the differences between Subject, BehaviorSubject and ReplaySubject? And in what situation would you use each of these (please provide example scenarios)?
+Subject - A subscriber will only get published values thereon-after the subscription is made.
+BehaviorSubject - New subscribers get the last published value OR initial value immediately upon subscription.
+ReplaySubject - New subscribers get the last 1-n published value(s) immediately upon subscription (only if previously emitted).
+e.g.: Suppose we have a shopping cart on our web-app & showing added items in menu bar. Also having products page, n no of items having add to cart button. product detail page where you have one add to cart button for that product. and finally the order summary page.
+In the above scenario we can use Subjects or BehaviorSubject on the cartService and all other components subscribing to it via service dependency injection.
+
+
+18. If you have an array of values in a stream and you wish to pipe it such that it will emit the arrays values individually, one by one and wait for them all to be completed before processing another array, how would you do this? Please provide a code example.
+
+
+19. If you have a stream that receives individual values and would like to pipe it such that it builds an array out of these values, emitting the updated array each time a new value is added to it, how would you do this? Please provide a code example.
+
