@@ -8,10 +8,10 @@ class InputBox extends React.Component {
       height : this.props.height
     }
   }
-  
+
   render(){
     const { onkeyPress, onChange, height } = this.props;
-	return(
+    return(
       <div>
         <input
           type="text"
