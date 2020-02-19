@@ -4,7 +4,9 @@
 =>The flatMap() method is identical to the ES6 map method, but also flattens at the same time. The flatMap() method first maps each element using a mapping function, then flattens the result into a new array. flatMap() is often quite useful, as merging both into one method is slightly more efficient.
 
 2. Explain an interesting way in which you have used this javascript feature.
-Pending
+=> I've used flatMap() with filter(), to return the passing values in an empty array or assigning the numbers over there, which can be used for further in the class scope for any function calls.
+It helped me to flat(), map() and filter() the data in a single scope.
+Basic Structure like this: const oddArr = dataList.flatMap(num => num % 2 === 0 ? [] : num);
 
 3. Is there any difference between regular function syntax and the shorter arrow function syntax? (Write the answer in your own words)
 
