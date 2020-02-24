@@ -5,33 +5,47 @@ ReplaySubject - New subscribers get the last 1-n published value(s) immediately 
 e.g.: Suppose we have a shopping cart on our web-app & showing added items in menu bar. Also having products page, n no of items having add to cart button. product detail page where you have one add to cart button for that product. and finally the order summary page.
 In the above scenario we can use Subjects or BehaviorSubject on the cartService and all other components subscribing to it via service dependency injection.
 
-
+---------------------------------------------------------------------------------------------------------------------------
 18. If you have an array of values in a stream and you wish to pipe it such that it will emit the arrays values individually, one by one and wait for them all to be completed before processing another array, how would you do this? Please provide a code example.
-We will be using promises for this.
-Code Example:-
-function allProgress(proms, call_cb) {
-  let d = 0;
-  call_cb(0);
-  for (const p of proms) {
-    p.then(()=> {
-      d ++;
-      call_cb( (d * 100) / proms.length );
-    });
-  }
-  return Promise.all(proms);
-}
-function emit(parms) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-       console.log(`Waited ${parms}`);
-       resolve();
-     }, parms);
-  });
-}
-allProgress([emit(1000), emit(3000), emit(2000), emit(3500)],
-  (responce) => {
-     console.log(`% Done = ${responce.toFixed(2)}`);
-});
+-> I've written a function that will take up the functionality for the same.
 
+Rx.Observable.fromArray(["Array1", "Array2", "Array3"])
+	.zip(
+		Rx.Observable.interval(500),
+		function(a, b) {
+			return a;
+		}) // adding time interval for array to emit
+	.subscribe(
+		function(x) {
+			document.write(x + '<br \>');
+		},
+		null,
+		function() {
+			document.write("complete");
+		});
+
+--------------------------------------------------------------------------------------------------------------------
 19. If you have a stream that receives individual values and would like to pipe it such that it builds an array out of these values, emitting the updated array each time a new value is added to it, how would you do this? Please provide a code example.
---
+-> Written a function for the same
+
+const http = {
+	get: (url) => Rx.Observable.of(['test1', 'test2'])
+}
+const commonArray = new Rx.Subject();
+const fetch = () => {
+	return http.get('myUrl').map(x => x).do(data => commonArray.next(data))
+}
+const add = (conValue) => {
+	commonArray.take(1).subscribe(current => {
+		current.push(conValue);
+		commonArray.next(current);
+	})
+}
+// subscribe call
+commonArray.subscribe(console.log)
+// add new value to array
+fetch().subscribe(
+	add('test3')
+)
+
+--------------------------------------------------------------------------------------------------------------------
